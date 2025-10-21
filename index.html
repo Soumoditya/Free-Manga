@@ -107,7 +107,7 @@
     </div>
 
     <script>
-        const HF_TOKEN = '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'; // Your Hugging Face token
+        const HF_TOKEN = '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'; // Updated Hugging Face token
 
         async function generateManga() {
             const output = document.getElementById('mangaOutput');
@@ -130,7 +130,7 @@
 
             // Manga generation
             let mangaContent = '';
-            const pageCount = 10; // Reduced to 10 for faster testing; change to 100 for full manga
+            const pageCount = 10; // Set to 10 for testing; change to 100 for full manga
             for (let i = 1; i <= pageCount; i++) {
                 const genre = genres[Math.floor(Math.random() * genres.length)];
                 const setting = settings[Math.floor(Math.random() * settings.length)];
@@ -142,7 +142,7 @@
                 ];
 
                 // Generate manga-style art via Hugging Face
-                let imageUrl = await generateMangaArt(`${protagonist} in ${setting}, manga style, dramatic scene, detailed background`);
+                let imageUrl = await generateMangaArt(`${protagonist} in ${setting}, manga style, black and white, dramatic scene, detailed background`);
 
                 // Fallback image if API fails
                 if (!imageUrl) {
@@ -162,7 +162,7 @@
                     </div>
                 `;
                 mangaContent += pageContent;
-                output.innerHTML = mangaContent; // Update progressively for UX
+                output.innerHTML = mangaContent; // Progressive rendering
             }
 
             loader.style.display = 'none';
